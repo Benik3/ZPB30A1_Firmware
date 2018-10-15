@@ -1,10 +1,10 @@
 # ZPB30A1 Firmware
 
-This repository is there to build an open-source firmware for the ZPB30A1 electronic load.
+This repository is there to build an open-source firmware for the ZPB30A1 chinese 60W electronic load.
 
-The original firmware is protected and therefore could not been read and improved partially. :warning: They also activated the write protection, so unfortunately **you have to replace the IC on the board**. But the processors are available at almost no cost on the same platform you bought the load on ;-) (or up to a quadruple of the price at regular distributors)
-
-So if you plan to buy a load like this and want to "upgrade", consider ordering the processor and a cheap STLink V2 too (if you haven't got one already).
+The original firmware is protected and therefore could not been read and improved partially. :warning: They also activated the write protection, ~~so unfortunately **you have to replace the IC on the board**. But the processors are available at almost no cost on the same platform you bought the load on ;-) (or up to a quadruple of the price at regular distributors)~~
+You should be able to unlock the MCU by flashing 0x00 option bytes through SWIM e.g. with graphic STVP. Not tested yet. You will of course lost original FW...
+So if you plan to buy a load like this and want to "upgrade", consider ordering ~~the processor and~~ a cheap STLink V2 too (if you haven't got one already).
 
 ![Hacked](https://github.com/ArduinoHannover/ZPB30A1_Firmware/raw/master/images/hacked.jpg)
 
@@ -81,12 +81,12 @@ Development started using a STM8S Discovery, which is using a STM8S003K3. This i
   - [x] CW (Constant Power)
   - [x] CR (Constant Resistance)
   - [ ] BAT (Battery capacity test)
-- [x] Continous output of data via UART
+- [x] Continous output of data via UART now with support for Logview
 - [ ] Logging of Ah, Wh, J (?) in every mode
-- [x] Adjusting shunt resistance (if replaced with e.g. 100 mΩ for an offset as low as 20 mA instead of 200 mA, not the resistance itself but the value in software)
-  - :information_source: Not needed, we can safely trim the current down to almost 0 mA by PWM
+- [ ] Adjusting shunt resistance (if replaced with e.g. 100 mΩ for an offset as low as 20 mA instead of 200 mA, not the resistance itself but the value in software)
+  - :information_source: ~~Not needed, we can safely trim the current down to almost 0 mA by PWM~~ From my testing minimum current is 130mA.
 - [ ] Toggle beeper, auto shutdown
-  - Currently no beeper active
+  - Currently beeper is working but it needs more function
 - [x] Nice menus even though we got just that small seven segments
 
 
